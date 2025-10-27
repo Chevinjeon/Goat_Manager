@@ -30,3 +30,30 @@ int main() {
     i = 0;
     while (fin1 >> colors[i++]);
     fin1.close();
+
+    list<Goat> trip;
+    bool again = true;
+
+    while (again) {
+        int choice = main_menu();
+        switch(choice) {
+            case 1:
+                add_goat(trip, names, colors);
+                break;
+            case 2:
+                delete_goat(trip);
+                break;
+            case 3:
+                display_trip(trip);
+                break;
+            case 4:
+                again = false;
+                cout << "\nThanks for using Goat Manager 3001!\n";
+                break;
+            default:
+                cout << "Invalid choice.\n";
+        }
+    }
+
+    return 0;
+}
