@@ -2,6 +2,8 @@
 #include <fstream>
 #include <iomanip>
 #include <list>
+#include <cstdlib>
+#include <ctime>
 #include "Goat.h"
 using namespace std;
 
@@ -12,10 +14,10 @@ void delete_goat(list<Goat> &trip);
 void add_goat(list<Goat> &trip, string [], string []);
 void display_trip(list<Goat> trip);
 int main_menu();
+void display_goat_menu(list<Goat> trip);
 
 int main() {
     srand(time(0));
-    bool again;
 
     // read & populate arrays for names and colors
     ifstream fin("names.txt");
@@ -28,10 +30,3 @@ int main() {
     i = 0;
     while (fin1 >> colors[i++]);
     fin1.close();
-
-
-
-
-    return 0;
-}
-
