@@ -57,3 +57,38 @@ int main() {
 
     return 0;
 }
+
+// Task 2: Display main menu and get user choice
+int main_menu() {
+    cout << "\n*** GOAT MANAGER 3001 ***\n";
+    cout << "[1] Add a goat\n";
+    cout << "[2] Delete a goat\n";
+    cout << "[3] List goats\n";
+    cout << "[4] Quit\n";
+    cout << "Choice --> ";
+    int choice;
+    cin >> choice;
+    return choice;
+}
+
+// Display the goat selection submenu
+void display_goat_menu(list<Goat> trip) {
+    int index = 1;
+    for (const Goat& g : trip) {
+        cout << "    [" << index << "] " << g.get_name() 
+             << " (" << g.get_age() << ", " << g.get_color() << ")\n";
+        index++;
+    }
+}
+
+// Task 3: Add a goat to the trip
+void add_goat(list<Goat> &trip, string names[], string colors[]) {
+    string name = names[rand() % SZ_NAMES];
+    string color = colors[rand() % SZ_COLORS];
+    int age = rand() % (MAX_AGE + 1);
+    
+    Goat newGoat(name, age, color);
+    trip.push_back(newGoat);
+    cout << "\nAdded: " << name << " (" << age << ", " << color << ")\n";
+    trip.sort();
+}
